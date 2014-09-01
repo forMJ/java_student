@@ -9,10 +9,12 @@ public class CommonFunc {
 	private Scanner sc = new Scanner(System.in);
 	private List<StudentDto> myList = new ArrayList();;
 	
+	// creater
 	public CommonFunc() {
 		mainView();
 	}
 	
+	// main 
 	public void mainView() {
 		
 		int key = -1;
@@ -79,7 +81,9 @@ public class CommonFunc {
 		}
 		mainView();
 	}
+	// //main
 	
+	// add
 	public void addStudent() {
 		StudentDto sd = new StudentDto();
 		
@@ -112,7 +116,9 @@ public class CommonFunc {
 		
 		return key;
 	}
+	// //aadd
 	
+	// update
 	public void updateStudent() {
 		
 		StudentDto sd = searchStudent();
@@ -130,13 +136,17 @@ public class CommonFunc {
 		System.out.println();
 		
 	}
+	// //update
 	
+	// delete
 	public void deleteStudent() {
 		
 		StudentDto sd = searchStudent();
 		myList.remove(sd);
 	}
+	// //delete
 	
+	// search
 	public StudentDto searchStudent() {
 		
 		System.out.print("\t name :: ");
@@ -152,10 +162,13 @@ public class CommonFunc {
 		}
 		return sd;
 	}
+	// //search
 	
+	// print
 	public void allSearch() {
 		printAll();
 	}
+	
 	
 	private void printStudent(StudentDto sd) {
 		
@@ -185,5 +198,6 @@ public class CommonFunc {
 			System.out.println();
 		}
 	}
+	// //print
 	
 }
