@@ -1,10 +1,13 @@
 package studentAdmin;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CommonFunc {
 	
 	private Scanner sc = new Scanner(System.in);
+	private List<StudentDto> myList = new ArrayList();;
 	
 	public CommonFunc() {
 		mainView();
@@ -67,10 +70,28 @@ public class CommonFunc {
 			System.exit(0);
 			break;
 		}
+		mainView();
 	}
 	
 	public void addStudent() {
-		System.out.println("add");
+		StudentDto sd = new StudentDto();
+		
+		System.out.println();
+		System.out.println("\t ==== Student Add ====");
+		sd.setNumber(myList == null ? 0 : myList.size());
+		
+		System.out.print("\t name :: ");
+		sd.setName(sc.next());
+
+		System.out.print("\t phone :: ");
+		sd.setPhone(sc.next());
+		
+		System.out.print("\t grade :: ");
+		sd.setGrade(sc.next());
+		
+		System.out.println();
+		
+		myList.add(sd);
 	}
 	
 	public void updateStudent() {
@@ -90,14 +111,19 @@ public class CommonFunc {
 	}
 	
 	private void printStudent() {
-		System.out.println();
-		System.out.println("\t ==== Student ====");
-		System.out.println("\t number :: ");
-		System.out.println("\t name :: ");
-		System.out.println("\t phone :: ");
-		System.out.println("\t grade :: ");
-		System.out.println();
-		System.out.println();
+		
+		int len = myList.size();
+		for (int i = 0 ; i < len ; i++) {
+			StudentDto sd = myList.get(i);
+			System.out.println();
+			System.out.println("\t ==== Student ====");
+			System.out.println("\t number :: " + sd.getNumber());
+			System.out.println("\t name :: " + sd.getName());
+			System.out.println("\t phone :: " + sd.getPhone());
+			System.out.println("\t grade :: " + sd.getGrade());
+			System.out.println();
+			System.out.println();
+		}
 	}
 	
 }
