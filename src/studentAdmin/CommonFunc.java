@@ -13,17 +13,12 @@ public class CommonFunc {
 		mainView();
 	}
 	
-	/*
-	 * common function 
-	 */
-	
 	public void mainView() {
 		
 		int key = -1;
 		while(true) {
 			initPage();
 			key = sc.nextInt();
-			//System.out.println(key);
 			
 			if (0 <= key && key < 6) {
 				callFunc(key);
@@ -55,6 +50,8 @@ public class CommonFunc {
 			continueAdd();
 			break;
 		case 2 :
+			System.out.println();
+			System.out.println("\t ==== Update ====");
 			updateStudent();
 			break;
 		case 3 :
@@ -112,7 +109,21 @@ public class CommonFunc {
 	}
 	
 	public void updateStudent() {
-		System.out.println("update");
+		
+		StudentDto sd = searchStudent();
+		
+		System.out.print("\t name :: ");
+		sd.setName(sc.next());
+
+		System.out.print("\t phone :: ");
+		sd.setPhone(sc.next());
+		
+		System.out.print("\t grade :: ");
+		sd.setGrade(sc.next());
+		
+		System.out.println();
+		System.out.println();
+		
 	}
 	
 	public void deleteStudent() {
@@ -135,7 +146,6 @@ public class CommonFunc {
 			}
 		}
 		return sd;
-		//printStudent(name);
 	}
 	
 	public void allSearch() {
