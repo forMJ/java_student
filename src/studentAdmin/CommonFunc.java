@@ -47,7 +47,10 @@ public class CommonFunc {
 		switch(key) {
 		case 1 :
 			addStudent();
-			continueAdd();
+			while(true) {
+				String flag = continueAdd();
+				if (flag.equalsIgnoreCase("N")) break;
+			}
 			break;
 		case 2 :
 			System.out.println();
@@ -98,7 +101,7 @@ public class CommonFunc {
 		myList.add(sd);
 	}
 	
-	private void continueAdd() {
+	private String continueAdd() {
 		System.out.println();
 		System.out.print("continue??? (y/n) ::: ");
 		String key = sc.next();
@@ -106,6 +109,8 @@ public class CommonFunc {
 		if (key.equalsIgnoreCase("Y")) {
 			addStudent();
 		}
+		
+		return key;
 	}
 	
 	public void updateStudent() {
