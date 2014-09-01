@@ -1,6 +1,6 @@
 package studentAdmin;
 
-public class Student {
+public class StudentDto {
 	
 	/*
 	 * administrator values 
