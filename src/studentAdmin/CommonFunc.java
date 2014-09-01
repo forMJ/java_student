@@ -51,6 +51,7 @@ public class CommonFunc {
 		switch(key) {
 		case 1 :
 			addStudent();
+			continueAdd();
 			break;
 		case 2 :
 			updateStudent();
@@ -78,7 +79,7 @@ public class CommonFunc {
 		
 		System.out.println();
 		System.out.println("\t ==== Student Add ====");
-		sd.setNumber(myList == null ? 0 : myList.size());
+		sd.setNumber( (myList == null ? 0 : myList.size()) + 1);
 		
 		System.out.print("\t name :: ");
 		sd.setName(sc.next());
@@ -92,6 +93,16 @@ public class CommonFunc {
 		System.out.println();
 		
 		myList.add(sd);
+	}
+	
+	private void continueAdd() {
+		System.out.println();
+		System.out.print("continue??? (y/n) :::");
+		String key = sc.next();
+		
+		if (key.equalsIgnoreCase("Y")) {
+			addStudent();
+		}
 	}
 	
 	public void updateStudent() {
