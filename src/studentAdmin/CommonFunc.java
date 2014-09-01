@@ -78,7 +78,7 @@ public class CommonFunc {
 		StudentDto sd = new StudentDto();
 		
 		System.out.println();
-		System.out.println("\t ==== Student Add ====");
+		System.out.println("\t ==== Add ====");
 		sd.setNumber( (myList == null ? 0 : myList.size()) + 1);
 		
 		System.out.print("\t name :: ");
@@ -97,7 +97,7 @@ public class CommonFunc {
 	
 	private void continueAdd() {
 		System.out.println();
-		System.out.print("continue??? (y/n) :::");
+		System.out.print("continue??? (y/n) ::: ");
 		String key = sc.next();
 		
 		if (key.equalsIgnoreCase("Y")) {
@@ -114,18 +114,41 @@ public class CommonFunc {
 	}
 	
 	public void searchStudent() {
-		printStudent();
+		System.out.println("\t ==== Search ====");
+		System.out.print("\t name :: ");
+		String name = sc.next();
+		printStudent(name);
 	}
 	
 	public void allSearch() {
-		printStudent();
+		printAll();
 	}
 	
-	private void printStudent() {
+	private void printStudent(String name) {
 		
 		int len = myList.size();
+		StudentDto sd;
 		for (int i = 0 ; i < len ; i++) {
-			StudentDto sd = myList.get(i);
+			sd = myList.get(i);
+			if (name.equalsIgnoreCase(sd.getName())) {
+				System.out.println();
+				System.out.println("\t ==== Student ====");
+				System.out.println("\t number :: " + sd.getNumber());
+				System.out.println("\t name :: " + sd.getName());
+				System.out.println("\t phone :: " + sd.getPhone());
+				System.out.println("\t grade :: " + sd.getGrade());
+				System.out.println();
+				System.out.println();
+			}
+		}
+	}
+	
+	private void printAll () {
+		
+		int len = myList.size();
+		StudentDto sd;
+		for (int i = 0 ; i < len ; i++) {
+			sd = myList.get(i);
 			System.out.println();
 			System.out.println("\t ==== Student ====");
 			System.out.println("\t number :: " + sd.getNumber());
