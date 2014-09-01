@@ -48,6 +48,7 @@ public class CommonFunc {
 	}
 	
 	private void callFunc(int key) {
+		StudentDto sd = null;
 		switch(key) {
 		case 1 :
 			addStudent();
@@ -57,10 +58,15 @@ public class CommonFunc {
 			updateStudent();
 			break;
 		case 3 :
+			System.out.println();
+			System.out.println("\t ==== Delete ====");
 			deleteStudent();
 			break;
 		case 4 :
-			searchStudent();
+			System.out.println();
+			System.out.println("\t ==== Search ====");
+			sd = searchStudent();
+			printStudent(sd);
 			break;
 		case 5 :
 			allSearch();
@@ -110,37 +116,42 @@ public class CommonFunc {
 	}
 	
 	public void deleteStudent() {
-		System.out.println("delete");		
+		
+		StudentDto sd = searchStudent();
+		myList.remove(sd);
 	}
 	
-	public void searchStudent() {
-		System.out.println("\t ==== Search ====");
+	public StudentDto searchStudent() {
+		
 		System.out.print("\t name :: ");
 		String name = sc.next();
-		printStudent(name);
+		
+		int len = myList.size();
+		StudentDto sd = null;
+		for (int i = 0 ; i < len ; i++) {
+			sd = myList.get(i);
+			if (name.equalsIgnoreCase(sd.getName())) {
+				break;
+			}
+		}
+		return sd;
+		//printStudent(name);
 	}
 	
 	public void allSearch() {
 		printAll();
 	}
 	
-	private void printStudent(String name) {
+	private void printStudent(StudentDto sd) {
 		
-		int len = myList.size();
-		StudentDto sd;
-		for (int i = 0 ; i < len ; i++) {
-			sd = myList.get(i);
-			if (name.equalsIgnoreCase(sd.getName())) {
-				System.out.println();
-				System.out.println("\t ==== Student ====");
-				System.out.println("\t number :: " + sd.getNumber());
-				System.out.println("\t name :: " + sd.getName());
-				System.out.println("\t phone :: " + sd.getPhone());
-				System.out.println("\t grade :: " + sd.getGrade());
-				System.out.println();
-				System.out.println();
-			}
-		}
+		System.out.println();
+		System.out.println("\t ==== Student ====");
+		System.out.println("\t number :: " + sd.getNumber());
+		System.out.println("\t name :: " + sd.getName());
+		System.out.println("\t phone :: " + sd.getPhone());
+		System.out.println("\t grade :: " + sd.getGrade());
+		System.out.println();
+		System.out.println();
 	}
 	
 	private void printAll () {
