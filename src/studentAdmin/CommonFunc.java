@@ -24,6 +24,7 @@ public class CommonFunc {
 			
 			if (0 <= key && key < 6) {
 				callFunc(key);
+				break;
 			} else {
 				System.out.println("re!!!");
 			}
@@ -31,7 +32,7 @@ public class CommonFunc {
 		
 	}
 	
-	public void initPage() {
+	private void initPage() {
 		System.out.println();
 		System.out.println("===== Student Administrator =====");
 		System.out.println("\t 1. create");
@@ -43,22 +44,22 @@ public class CommonFunc {
 		System.out.print(" please enter number ::: ");
 	}
 	
-	public void callFunc(int key) {
+	private void callFunc(int key) {
 		switch(key) {
 		case 1 :
-			System.out.println(key);
+			addStudent();
 			break;
 		case 2 :
-			System.out.println(key);
+			updateStudent();
 			break;
 		case 3 :
-			System.out.println(key);
+			deleteStudent();
 			break;
 		case 4 :
-			System.out.println(key);
+			searchStudent();
 			break;
 		case 5 :
-			System.out.println(key);
+			allSearch();
 			break;
 		case 0 :
 			System.out.println();
@@ -69,23 +70,34 @@ public class CommonFunc {
 	}
 	
 	public void addStudent() {
-		
-	}
-	
-	public void deleteStudent() {
-		
+		System.out.println("add");
 	}
 	
 	public void updateStudent() {
-		
+		System.out.println("update");
+	}
+	
+	public void deleteStudent() {
+		System.out.println("delete");		
 	}
 	
 	public void searchStudent() {
-		
+		printStudent();
 	}
 	
 	public void allSearch() {
-		
+		printStudent();
+	}
+	
+	private void printStudent() {
+		System.out.println();
+		System.out.println("\t ==== Student ====");
+		System.out.println("\t number :: ");
+		System.out.println("\t name :: ");
+		System.out.println("\t phone :: ");
+		System.out.println("\t grade :: ");
+		System.out.println();
+		System.out.println();
 	}
 	
 }
